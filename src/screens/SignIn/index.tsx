@@ -14,11 +14,6 @@ import { styles as S } from './styles'
 export function SignIn() {
   return (
     <View style={S.container}>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent
-      />
       <Image
         style={S.image}
         source={Ilustartion}
@@ -26,12 +21,12 @@ export function SignIn() {
       />
       <View style={S.content}>
         <Text style={S.title}>
-          Organize{`\n`}
-          suas jogatinas{`\n`}
-          facilmente{`\n`}
+          Conecte-se{'\n'}
+          e organize suas{'\n'}
+          jogatinas{'\n'}
         </Text>
         <Text style={S.subtitle}>
-          Crie grupos para jogar seus game {`\n`}
+          Crie grupos para jogar seus games {`\n`}
           favoritos com seus amigos.
         </Text>
         <ButtonIcon activeOpacity={0.7} title="Entrar com Discord" />
