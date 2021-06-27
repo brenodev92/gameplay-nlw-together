@@ -2,13 +2,9 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler'
 import { SvgProps } from 'react-native-svg'
-
-import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { LinearGradient } from 'expo-linear-gradient'
 
 import { theme } from '../../theme'
-
-import { categories } from '../../utils/categories'
 
 import { styles as S } from './styles'
 
@@ -35,17 +31,7 @@ export default function CategoryItem({
           ]
         }>
         <View style={[S.content, { opacity: checked ? 1 : 0.4 }]}>
-          <View style={S.checked}>
-            {checked && (
-              <View style={S.iconChecked}>
-                <MaterialCommunityIcons
-                  name="plus"
-                  color={theme.colors.heading}
-                  size={24}
-                />
-              </View>
-            )}
-          </View>
+          <View style={checked ? S.checked : S.check} />
           <Icon width={48} height={48} />
           <Text style={S.title}>{title}</Text>
         </View>

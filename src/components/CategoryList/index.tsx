@@ -7,10 +7,12 @@ import CategoryItem from '../CategoryItem'
 import { styles as S } from './styles'
 
 type Props = {
-  categorySelected: string
+  categorySelected: string,
+  setCategory: (categoryId: string) => void
 }
 
-export default function CategoryList({ categorySelected }: Props) {
+export default function CategoryList(
+  { categorySelected, setCategory }: Props) {
   return (
     <ScrollView
       style={S.container}
@@ -24,6 +26,7 @@ export default function CategoryList({ categorySelected }: Props) {
           title={category.title}
           icon={category.icon}
           checked={category.id === categorySelected}
+          onPress={() => setCategory(category.id)}
         />
       ))}
     </ScrollView>
