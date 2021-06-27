@@ -1,8 +1,9 @@
 import React from 'react'
 import { View, ScrollView } from 'react-native'
 
+import { CategoryItem } from '..'
+
 import { categories } from '../../utils/categories'
-import CategoryItem from '../CategoryItem'
 
 import { styles as S } from './styles'
 
