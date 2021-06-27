@@ -8,7 +8,7 @@ type Props = {
   children: ReactNode
 }
 
-export function BasePage({ children }: Props) {
+export default function BasePage({ children }: Props) {
   return (
     <LinearGradient
       style={S.container}
