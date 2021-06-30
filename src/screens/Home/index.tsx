@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import { View, FlatList } from 'react-native'
 
 import {
-  Profile,
+  Appointment,
+  BasePage,
   ButtonAdd,
   CategoryList,
+  Divider,
   ListHeader,
-  Appointment,
-  Divider
+  Profile,
 } from '../../components'
 
 import { styles as S } from './styles'
@@ -119,30 +120,32 @@ export function Home() {
   }
 
   return (
-    <View style={S.container}>
-      <View style={S.header}>
-        <Profile />
-        <ButtonAdd />
+    <BasePage>
+      <View style={S.container}>
+        <View style={S.header}>
+          <Profile />
+          <ButtonAdd />
+        </View>
+        <View>
+          <CategoryList
+            categorySelected={category}
+            setCategory={handleCategorySelected}
+          />
+        </View>
+        <View style={S.content}>
+          <ListHeader title="Partidas agendadas" subtitle="Total 6" />
+          <FlatList
+            style={S.matches}
+            showsHorizontalScrollIndicator={false}
+            data={appointments}
+            keyExtractor={item => item.id}
+            ItemSeparatorComponent={() => <Divider />}
+            renderItem={({ item }) => (
+              <Appointment data={item} />
+            )}
+          />
+        </View>
       </View>
-      <View>
-        <CategoryList
-          categorySelected={category}
-          setCategory={handleCategorySelected}
-        />
-      </View>
-      <View style={S.content}>
-        <ListHeader title="Partidas agendadas" subtitle="Total 6" />
-        <FlatList
-          style={S.matches}
-          showsHorizontalScrollIndicator={false}
-          data={appointments}
-          keyExtractor={item => item.id}
-          ItemSeparatorComponent={() => <Divider />}
-          renderItem={({ item }) => (
-            <Appointment data={item} />
-          )}
-        />
-      </View>
-    </View>
+    </BasePage>
   )
 }
