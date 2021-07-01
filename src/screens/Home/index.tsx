@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { View, FlatList } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 import {
   Appointment,
@@ -113,10 +114,15 @@ const appointments = [
 ]
 
 export function Home() {
+  const navigation = useNavigation()
   const [category, setCategory] = useState('')
 
   function handleCategorySelected(categoryId: string) {
     categoryId === category ? setCategory('') : setCategory(categoryId)
+  }
+
+  function handleAppointmentDetails(){
+    navigation.navigate('AppointmentDetails')
   }
 
   return (
@@ -141,7 +147,10 @@ export function Home() {
             keyExtractor={item => item.id}
             ItemSeparatorComponent={() => <Divider />}
             renderItem={({ item }) => (
-              <Appointment data={item} />
+              <Appointment 
+                data={item}
+                onPress={handleAppointmentDetails}
+              />
             )}
           />
         </View>
