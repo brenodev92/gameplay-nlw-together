@@ -41,7 +41,7 @@ export function AppointmentCreate() {
   return (
     <BasePage>
       <Header
-        title="Detalhes"
+        title="criar"
         action={
           <BorderlessButton>
             <Fontisto
